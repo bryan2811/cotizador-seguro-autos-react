@@ -1,6 +1,16 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import styled from '@emotion/styled';
+import { primerMayuscula } from '../Helper';
 
-const Resultado = ({ datos }) => {
+const ContenedorResumen = styled.div`
+    padding: 1rem;
+    text-align: center;
+    background-color: #00838F;
+    color: #FFFFFF;
+    margin-top: 1rem;
+`;
+
+const Resumen = ({ datos }) => {
 
     // Extraer de datos
     const { marca, year, plan } = datos;
@@ -8,15 +18,15 @@ const Resultado = ({ datos }) => {
     if (marca === '' || year === '' || plan === '') return null;
 
     return ( 
-        <Fragment>
+        <ContenedorResumen>
             <h2>Resumen de Cotización</h2>
             <ul>
-                <li>Marca: </li>
-                <li>Plan: </li>
-                <li>Año del auto: </li>
+                <li>Marca: { primerMayuscula(marca) }</li>
+                <li>Plan: { primerMayuscula(plan) }</li>
+                <li>Año del auto: { primerMayuscula(year) }</li>
             </ul>
-        </Fragment>
+        </ContenedorResumen>
      );
 }
  
-export default Resultado;
+export default Resumen;
